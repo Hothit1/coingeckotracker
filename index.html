@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Top Coins by Volume to Market Cap Ratio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
+  </head>
+  <body class="bg-gray-50 text-gray-900">
+    <div class="container mx-auto p-8">
+      <h1 class="text-3xl font-bold mb-8">Top Coins by Volume to Market Cap Ratio</h1>
+      <table class="w-full table-auto border-collapse border border-gray-300">
+        <thead>
+          <tr class="bg-gray-200 text-gray-700">
+            <th class="px-4 py-2">#</th>
+            <th class="px-4 py-2">Name</th>
+            <th class="px-4 py-2">Symbol</th>
+            <th class="px-4 py-2">Volume to Market Cap Ratio</th>
+            <th class="px-4 py-2">Price (USD)</th>
+          </tr>
+        </thead>
+        <tbody id="coin-data"></tbody>
+      </table>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
