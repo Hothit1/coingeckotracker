@@ -1,21 +1,11 @@
-import Coingecko from 'coingecko-api';
-import { Coin } from 'coingecko-api/dist/types';
+const cg = require('coingecko-api');
 
-const cg = new Coingecko();
+const coingeckoClient = new cg();
 
-interface CoinData {
-  name: string;
-  symbol: string;
-  price: number;
-  volume: number;
-  marketCap: number;
-  volumeToMarketCapRatio: number;
-}
-
-async function getTopCoins() {
-  const coins: Coin[] = await cg.coins.all();
-
-  const topCoins: CoinData[] = coins
+async function getTopCoinsByVolumeToMarketCap() {
+  const coins = await coingeckoClient.coins.all();
+  
+  const topCoins = coins
     .filter((coin) => coin.market_data.market_cap.usd >= 50000000)
     .map((coin) => ({
       name: coin.name,
@@ -32,7 +22,7 @@ async function getTopCoins() {
 }
 
 async function renderTable() {
-  const coinData = await getTopCoins();
+  const coinData = await getTopCoinsByVolumeToMarketCap();
 
   const tbody = document.getElementById('coin-data');
 
